@@ -1,0 +1,42 @@
+---
+
+- name: Install nginx web server on multiple operating systems
+  hosts: all
+  become: true
+  vars:
+    - company_name: "tektutor"
+
+  tasks:
+    - name: Install nginx webserver on Ubuntu
+      apt: name="nginx" state="present" update_cache="yes"
+      when: ansible_os_family == "Debian"
+
+    - name: Install EPEL on CentOS 
+      yum: name="epel-release" state="present" 
+      when: ansible_os_family == "RedHat"
+
+    - name: Install nginx webserver on CentOS 
+      yum: name="nginx" state="present"
+      when: ansible_os_family == "RedHat"
+
+    - name: Configure nginx webserver
+      copy: src="nginx.conf" dest="/etc/nginx/nginx.conf"
+      notify:
+         - restart nginx server      
+
+    - name: Configure nginx website root folder
+      copy: src="default.conf" dest="/etc/nginx/conf.d/default.conf"
+      notify:
+         - restart nginx server      
+
+    - name: Create website folders
+      file: path="/var/www/" state="directory" mode=0755
+
+    - name: Deploy website content to nginx webserver
+      template: src="index.html" dest="/var/www/index.html"
+      notify:
+         - restart nginx server      
+
+  handlers:
+    - name: restart nginx server
+      service: name="nginx" state="started"

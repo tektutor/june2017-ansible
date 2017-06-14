@@ -1,0 +1,6 @@
+---
+
+- name: This playbook demonstrates the use of our custom nginx role
+  hosts: all
+  roles:
+    - nginx

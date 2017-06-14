@@ -1,0 +1,12 @@
+---
+- name: Demonstrates use of custom module in this playbook
+  hosts: localhost
+  gather_facts: no 
+  tasks:
+    - name: Call our brand new custom hello module
+      hello:
+      register: result
+
+    - debug: var=result
+
+    - ping:

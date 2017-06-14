@@ -1,0 +1,13 @@
+---
+- name: This playbook will install and configure Apache Tomcat Server
+  hosts: all
+
+  tasks:
+    - name: Install Apache Tomcat
+      apt:  name="apache2" state="present" update_cache="yes"
+
+    - name: Copy pre-configured Apache Tomcat
+      copy: src="apache2.conf" dest="/etc/apache2/apache2.conf"  
+
+    - name: Start the Apache Tomcat Server
+      service: name="apache2" state="restarted"

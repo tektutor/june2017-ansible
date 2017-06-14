@@ -1,0 +1,4 @@
+---
+
+- name: This is a post task playbook
+  debug: msg="This is a post-task task"

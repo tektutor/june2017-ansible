@@ -1,0 +1,5 @@
+---
+# vars file for nginx
+automation_tool: Ansible
+provisioner: docker
+

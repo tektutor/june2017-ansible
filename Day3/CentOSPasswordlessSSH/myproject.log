@@ -1,0 +1,528 @@
+2017-03-07 04:56:33,298 p=33590 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 04:56:33,324 p=33590 u=train |  TASK [setup] *******************************************************************
+2017-03-07 04:56:33,851 p=33590 u=train |  fatal: [172.17.0.11]: FAILED! => {"changed": false, "failed": true, "module_stderr": "Shared connection to localhost closed.\r\n", "module_stdout": "/bin/sh: sudo: command not found\r\n", "msg": "MODULE FAILURE"}
+2017-03-07 04:56:34,163 p=33590 u=train |  ok: [172.17.0.10]
+2017-03-07 04:56:34,165 p=33590 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 04:56:36,924 p=33590 u=train |   [ERROR]: User interrupted execution
+
+2017-03-07 04:56:42,281 p=34021 u=train |  Using /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/ansible.cfg as config file
+2017-03-07 04:56:42,344 p=34021 u=train |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/__init__.pyc
+2017-03-07 04:56:42,390 p=34021 u=train |  PLAYBOOK: installapache.yml ****************************************************
+2017-03-07 04:56:42,391 p=34021 u=train |  1 plays in installapache.yml
+2017-03-07 04:56:42,395 p=34021 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 04:56:42,433 p=34021 u=train |  TASK [setup] *******************************************************************
+2017-03-07 04:56:42,718 p=34021 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/system/setup.py
+2017-03-07 04:56:42,723 p=34021 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/system/setup.py
+2017-03-07 04:56:43,027 p=34021 u=train |  fatal: [172.17.0.11]: FAILED! => {
+    "changed": false, 
+    "failed": true, 
+    "invocation": {
+        "module_name": "setup"
+    }, 
+    "module_stderr": "OpenSSH_7.2p2 Ubuntu-4ubuntu2.1, OpenSSL 1.0.2g  1 Mar 2016\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 33662\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 127\r\nShared connection to localhost closed.\r\n", 
+    "module_stdout": "/bin/sh: sudo: command not found\r\n", 
+    "msg": "MODULE FAILURE"
+}
+2017-03-07 04:56:43,377 p=34021 u=train |  ok: [172.17.0.10]
+2017-03-07 04:56:43,379 p=34021 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 04:56:43,379 p=34021 u=train |  task path: /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml:6
+2017-03-07 04:56:43,558 p=34021 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/packaging/os/apt.py
+2017-03-07 04:56:53,019 p=34021 u=train |  ok: [172.17.0.10] => {
+    "cache_update_time": 1488842810, 
+    "cache_updated": true, 
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "allow_unauthenticated": false, 
+            "autoremove": false, 
+            "cache_valid_time": 0, 
+            "deb": null, 
+            "default_release": null, 
+            "dpkg_options": "force-confdef,force-confold", 
+            "force": false, 
+            "install_recommends": null, 
+            "name": "apache2", 
+            "only_upgrade": false, 
+            "package": [
+                "apache2"
+            ], 
+            "purge": false, 
+            "state": "latest", 
+            "update_cache": true, 
+            "upgrade": null
+        }, 
+        "module_name": "apt"
+    }
+}
+2017-03-07 04:56:53,020 p=34021 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 04:56:53,020 p=34021 u=train |  task path: /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml:12
+2017-03-07 04:56:53,069 p=34021 u=train |  skipping: [172.17.0.10] => {
+    "changed": false, 
+    "skip_reason": "Conditional check failed", 
+    "skipped": true
+}
+2017-03-07 04:56:53,073 p=34021 u=train |  	to retry, use: --limit @/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.retry
+
+2017-03-07 04:56:53,073 p=34021 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 04:56:53,073 p=34021 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 04:56:53,074 p=34021 u=train |  172.17.0.11                : ok=0    changed=0    unreachable=0    failed=1   
+2017-03-07 05:12:23,173 p=62511 u=train |  Using /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/ansible.cfg as config file
+2017-03-07 05:12:23,240 p=62511 u=train |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/__init__.pyc
+2017-03-07 05:12:23,283 p=62511 u=train |  PLAYBOOK: installapache.yml ****************************************************
+2017-03-07 05:12:23,283 p=62511 u=train |  1 plays in installapache.yml
+2017-03-07 05:12:23,286 p=62511 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 05:12:23,313 p=62511 u=train |  TASK [setup] *******************************************************************
+2017-03-07 05:12:23,567 p=62511 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/system/setup.py
+2017-03-07 05:12:23,568 p=62511 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/system/setup.py
+2017-03-07 05:12:23,891 p=62511 u=train |  fatal: [172.17.0.11]: FAILED! => {
+    "changed": false, 
+    "failed": true, 
+    "invocation": {
+        "module_name": "setup"
+    }, 
+    "module_stderr": "OpenSSH_7.2p2 Ubuntu-4ubuntu2.1, OpenSSL 1.0.2g  1 Mar 2016\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 62589\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 127\r\nShared connection to localhost closed.\r\n", 
+    "module_stdout": "/bin/sh: sudo: command not found\r\n", 
+    "msg": "MODULE FAILURE"
+}
+2017-03-07 05:12:24,176 p=62511 u=train |  ok: [172.17.0.10]
+2017-03-07 05:12:24,178 p=62511 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 05:12:24,179 p=62511 u=train |  task path: /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml:6
+2017-03-07 05:12:24,352 p=62511 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/packaging/os/apt.py
+2017-03-07 05:12:37,845 p=62511 u=train |  ok: [172.17.0.10] => {
+    "cache_update_time": 1488843755, 
+    "cache_updated": true, 
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "allow_unauthenticated": false, 
+            "autoremove": false, 
+            "cache_valid_time": 0, 
+            "deb": null, 
+            "default_release": null, 
+            "dpkg_options": "force-confdef,force-confold", 
+            "force": false, 
+            "install_recommends": null, 
+            "name": "apache2", 
+            "only_upgrade": false, 
+            "package": [
+                "apache2"
+            ], 
+            "purge": false, 
+            "state": "latest", 
+            "update_cache": true, 
+            "upgrade": null
+        }, 
+        "module_name": "apt"
+    }
+}
+2017-03-07 05:12:37,847 p=62511 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 05:12:37,849 p=62511 u=train |  task path: /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml:12
+2017-03-07 05:12:37,902 p=62511 u=train |  skipping: [172.17.0.10] => {
+    "changed": false, 
+    "skip_reason": "Conditional check failed", 
+    "skipped": true
+}
+2017-03-07 05:12:37,905 p=62511 u=train |  	to retry, use: --limit @/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.retry
+
+2017-03-07 05:12:37,905 p=62511 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 05:12:37,905 p=62511 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 05:12:37,905 p=62511 u=train |  172.17.0.11                : ok=0    changed=0    unreachable=0    failed=1   
+2017-03-07 05:15:47,105 p=68772 u=train |  Using /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/ansible.cfg as config file
+2017-03-07 05:15:47,121 p=68772 u=train |  ERROR! Syntax Error while loading YAML.
+
+
+The error appears to have been in '/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml': line 9, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      debug:msg={{ansible_distribution}}
+      when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+      ^ here
+
+2017-03-07 05:16:13,871 p=69571 u=train |  Using /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/ansible.cfg as config file
+2017-03-07 05:16:13,921 p=69571 u=train |  ERROR! conflicting action statements
+
+The error appears to have been in '/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: Install apache2 on Ubuntu machine using apt package manager
+      ^ here
+
+
+The error appears to have been in '/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: Install apache2 on Ubuntu machine using apt package manager
+      ^ here
+
+2017-03-07 05:16:27,499 p=69977 u=train |  Using /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/ansible.cfg as config file
+2017-03-07 05:16:27,554 p=69977 u=train |  ERROR! conflicting action statements
+
+The error appears to have been in '/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: Install apache2 on Ubuntu machine using apt package manager
+      ^ here
+
+
+The error appears to have been in '/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: Install apache2 on Ubuntu machine using apt package manager
+      ^ here
+
+2017-03-07 05:18:18,707 p=73328 u=train |  Using /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/ansible.cfg as config file
+2017-03-07 05:18:18,765 p=73328 u=train |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/__init__.pyc
+2017-03-07 05:18:18,802 p=73328 u=train |  PLAYBOOK: installapache.yml ****************************************************
+2017-03-07 05:18:18,802 p=73328 u=train |  1 plays in installapache.yml
+2017-03-07 05:18:18,805 p=73328 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 05:18:18,828 p=73328 u=train |  TASK [setup] *******************************************************************
+2017-03-07 05:18:19,128 p=73328 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/system/setup.py
+2017-03-07 05:18:19,129 p=73328 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/system/setup.py
+2017-03-07 05:18:19,438 p=73328 u=train |  fatal: [172.17.0.11]: FAILED! => {
+    "changed": false, 
+    "failed": true, 
+    "invocation": {
+        "module_name": "setup"
+    }, 
+    "module_stderr": "OpenSSH_7.2p2 Ubuntu-4ubuntu2.1, OpenSSL 1.0.2g  1 Mar 2016\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 73384\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 127\r\nShared connection to localhost closed.\r\n", 
+    "module_stdout": "/bin/sh: sudo: command not found\r\n", 
+    "msg": "MODULE FAILURE"
+}
+2017-03-07 05:18:19,738 p=73328 u=train |  ok: [172.17.0.10]
+2017-03-07 05:18:19,740 p=73328 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 05:18:19,740 p=73328 u=train |  task path: /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml:6
+2017-03-07 05:18:19,894 p=73328 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/packaging/os/apt.py
+2017-03-07 05:18:29,019 p=73328 u=train |  ok: [172.17.0.10] => {
+    "cache_update_time": 1488844106, 
+    "cache_updated": true, 
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "allow_unauthenticated": false, 
+            "autoremove": false, 
+            "cache_valid_time": 0, 
+            "deb": null, 
+            "default_release": null, 
+            "dpkg_options": "force-confdef,force-confold", 
+            "force": false, 
+            "install_recommends": null, 
+            "name": "apache2", 
+            "only_upgrade": false, 
+            "package": [
+                "apache2"
+            ], 
+            "purge": false, 
+            "state": "latest", 
+            "update_cache": true, 
+            "upgrade": null
+        }, 
+        "module_name": "apt"
+    }
+}
+2017-03-07 05:18:29,026 p=73328 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 05:18:29,026 p=73328 u=train |  task path: /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml:12
+2017-03-07 05:18:29,125 p=73328 u=train |  skipping: [172.17.0.10] => {
+    "changed": false, 
+    "skip_reason": "Conditional check failed", 
+    "skipped": true
+}
+2017-03-07 05:18:29,131 p=73328 u=train |  	to retry, use: --limit @/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.retry
+
+2017-03-07 05:18:29,131 p=73328 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 05:18:29,131 p=73328 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 05:18:29,131 p=73328 u=train |  172.17.0.11                : ok=0    changed=0    unreachable=0    failed=1   
+2017-03-07 05:23:25,128 p=82774 u=train |  Using /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/ansible.cfg as config file
+2017-03-07 05:23:25,197 p=82774 u=train |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/__init__.pyc
+2017-03-07 05:23:25,235 p=82774 u=train |  PLAYBOOK: installapache.yml ****************************************************
+2017-03-07 05:23:25,236 p=82774 u=train |  1 plays in installapache.yml
+2017-03-07 05:23:25,238 p=82774 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 05:23:25,268 p=82774 u=train |  TASK [setup] *******************************************************************
+2017-03-07 05:23:25,470 p=82774 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/system/setup.py
+2017-03-07 05:23:25,470 p=82774 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/system/setup.py
+2017-03-07 05:23:25,777 p=82774 u=train |  fatal: [172.17.0.11]: FAILED! => {
+    "changed": false, 
+    "failed": true, 
+    "invocation": {
+        "module_name": "setup"
+    }, 
+    "module_stderr": "OpenSSH_7.2p2 Ubuntu-4ubuntu2.1, OpenSSL 1.0.2g  1 Mar 2016\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 82798\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 127\r\nShared connection to localhost closed.\r\n", 
+    "module_stdout": "/bin/sh: sudo: command not found\r\n", 
+    "msg": "MODULE FAILURE"
+}
+2017-03-07 05:23:35,387 p=82774 u=train |  aborted
+2017-03-07 05:24:13,438 p=84305 u=train |  Using /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/ansible.cfg as config file
+2017-03-07 05:24:13,498 p=84305 u=train |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python2.7/dist-packages/ansible/plugins/callback/__init__.pyc
+2017-03-07 05:24:13,534 p=84305 u=train |  PLAYBOOK: installapache.yml ****************************************************
+2017-03-07 05:24:13,535 p=84305 u=train |  1 plays in installapache.yml
+2017-03-07 05:24:13,537 p=84305 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 05:24:13,561 p=84305 u=train |  TASK [setup] *******************************************************************
+2017-03-07 05:24:13,854 p=84305 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/system/setup.py
+2017-03-07 05:24:13,859 p=84305 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/system/setup.py
+2017-03-07 05:24:14,084 p=84305 u=train |  fatal: [172.17.0.11]: FAILED! => {
+    "changed": false, 
+    "failed": true, 
+    "invocation": {
+        "module_name": "setup"
+    }, 
+    "module_stderr": "OpenSSH_7.2p2 Ubuntu-4ubuntu2.1, OpenSSL 1.0.2g  1 Mar 2016\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug1: auto-mux: Trying existing master\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug2: mux_client_hello_exchange: master version 4\r\ndebug3: mux_client_forwards: request forwardings: 0 local, 0 remote\r\ndebug3: mux_client_request_session: entering\r\ndebug3: mux_client_request_alive: entering\r\ndebug3: mux_client_request_alive: done pid = 82798\r\ndebug3: mux_client_request_session: session request sent\r\ndebug1: mux_client_request_session: master session id: 2\r\ndebug3: mux_client_read_packet: read header failed: Broken pipe\r\ndebug2: Received exit status from master 127\r\nShared connection to localhost closed.\r\n", 
+    "module_stdout": "/bin/sh: sudo: command not found\r\n", 
+    "msg": "MODULE FAILURE"
+}
+2017-03-07 05:24:15,243 p=84305 u=train |  ok: [172.17.0.10]
+2017-03-07 05:24:15,245 p=84305 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 05:24:15,245 p=84305 u=train |  task path: /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml:7
+2017-03-07 05:24:15,442 p=84305 u=train |  Using module file /usr/lib/python2.7/dist-packages/ansible/modules/core/packaging/os/apt.py
+2017-03-07 05:24:29,925 p=84305 u=train |  ok: [172.17.0.10] => {
+    "cache_update_time": 1488844467, 
+    "cache_updated": true, 
+    "changed": false, 
+    "invocation": {
+        "module_args": {
+            "allow_unauthenticated": false, 
+            "autoremove": false, 
+            "cache_valid_time": 0, 
+            "deb": null, 
+            "default_release": null, 
+            "dpkg_options": "force-confdef,force-confold", 
+            "force": false, 
+            "install_recommends": null, 
+            "name": "apache2", 
+            "only_upgrade": false, 
+            "package": [
+                "apache2"
+            ], 
+            "purge": false, 
+            "state": "latest", 
+            "update_cache": true, 
+            "upgrade": null
+        }, 
+        "module_name": "apt"
+    }
+}
+2017-03-07 05:24:29,927 p=84305 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 05:24:29,927 p=84305 u=train |  task path: /home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.yml:13
+2017-03-07 05:24:29,990 p=84305 u=train |  skipping: [172.17.0.10] => {
+    "changed": false, 
+    "skip_reason": "Conditional check failed", 
+    "skipped": true
+}
+2017-03-07 05:24:29,994 p=84305 u=train |  	to retry, use: --limit @/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.retry
+
+2017-03-07 05:24:29,994 p=84305 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 05:24:29,994 p=84305 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 05:24:29,995 p=84305 u=train |  172.17.0.11                : ok=0    changed=0    unreachable=0    failed=1   
+2017-03-07 05:25:11,220 p=86197 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 05:25:11,247 p=86197 u=train |  TASK [setup] *******************************************************************
+2017-03-07 05:25:11,577 p=86197 u=train |  fatal: [172.17.0.11]: FAILED! => {"changed": false, "failed": true, "module_stderr": "Shared connection to localhost closed.\r\n", "module_stdout": "/bin/sh: sudo: command not found\r\n", "msg": "MODULE FAILURE"}
+2017-03-07 05:25:14,678 p=86197 u=train |  TASK: setup
+2017-03-07 05:25:50,098 p=86197 u=train |  ***NameError:NameError("name 'n' is not defined",)
+2017-03-07 05:25:55,141 p=86197 u=train |  ok: [172.17.0.10]
+2017-03-07 05:25:55,143 p=86197 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 05:26:04,969 p=86197 u=train |  ok: [172.17.0.10]
+2017-03-07 05:26:04,972 p=86197 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 05:26:05,023 p=86197 u=train |  skipping: [172.17.0.10]
+2017-03-07 05:26:05,026 p=86197 u=train |  	to retry, use: --limit @/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.retry
+
+2017-03-07 05:26:05,026 p=86197 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 05:26:05,026 p=86197 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 05:26:05,026 p=86197 u=train |  172.17.0.11                : ok=0    changed=0    unreachable=0    failed=1   
+2017-03-07 05:28:06,275 p=91555 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 05:28:06,300 p=91555 u=train |  TASK [setup] *******************************************************************
+2017-03-07 05:28:06,735 p=91555 u=train |  fatal: [172.17.0.11]: FAILED! => {"changed": false, "failed": true, "module_stderr": "Shared connection to localhost closed.\r\n", "module_stdout": "/bin/sh: sudo: command not found\r\n", "msg": "MODULE FAILURE"}
+2017-03-07 05:28:07,042 p=91555 u=train |  ok: [172.17.0.10]
+2017-03-07 05:28:07,044 p=91555 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 05:28:15,936 p=91555 u=train |  ok: [172.17.0.10]
+2017-03-07 05:28:15,938 p=91555 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 05:28:15,984 p=91555 u=train |  skipping: [172.17.0.10]
+2017-03-07 05:28:15,986 p=91555 u=train |  	to retry, use: --limit @/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.retry
+
+2017-03-07 05:28:15,986 p=91555 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 05:28:15,986 p=91555 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 05:28:15,986 p=91555 u=train |  172.17.0.11                : ok=0    changed=0    unreachable=0    failed=1   
+2017-03-07 05:29:07,336 p=93565 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 05:29:07,359 p=93565 u=train |  TASK [setup] *******************************************************************
+2017-03-07 05:29:07,832 p=93565 u=train |  fatal: [172.17.0.11]: FAILED! => {"changed": false, "failed": true, "module_stderr": "Shared connection to localhost closed.\r\n", "module_stdout": "/bin/sh: sudo: command not found\r\n", "msg": "MODULE FAILURE"}
+2017-03-07 05:29:08,010 p=93565 u=train |  ok: [172.17.0.10]
+2017-03-07 05:29:08,012 p=93565 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 05:29:20,335 p=93565 u=train |  ok: [172.17.0.10]
+2017-03-07 05:29:20,337 p=93565 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 05:29:20,380 p=93565 u=train |  skipping: [172.17.0.10]
+2017-03-07 05:29:20,382 p=93565 u=train |  	to retry, use: --limit @/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.retry
+
+2017-03-07 05:29:20,382 p=93565 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 05:29:20,382 p=93565 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 05:29:20,383 p=93565 u=train |  172.17.0.11                : ok=0    changed=0    unreachable=0    failed=1   
+2017-03-07 05:35:36,907 p=105285 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 05:35:36,944 p=105285 u=train |  TASK [setup] *******************************************************************
+2017-03-07 05:35:37,671 p=105285 u=train |  fatal: [172.17.0.11]: FAILED! => {"changed": false, "failed": true, "module_stderr": "Shared connection to localhost closed.\r\n", "module_stdout": "/bin/sh: sudo: command not found\r\n", "msg": "MODULE FAILURE"}
+2017-03-07 05:35:38,025 p=105285 u=train |  ok: [172.17.0.10]
+2017-03-07 05:35:38,032 p=105285 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 05:35:54,404 p=105285 u=train |  ok: [172.17.0.10]
+2017-03-07 05:35:54,406 p=105285 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 05:35:54,448 p=105285 u=train |  skipping: [172.17.0.10]
+2017-03-07 05:35:54,460 p=105285 u=train |  	to retry, use: --limit @/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.retry
+
+2017-03-07 05:35:54,460 p=105285 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 05:35:54,460 p=105285 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 05:35:54,460 p=105285 u=train |  172.17.0.11                : ok=0    changed=0    unreachable=0    failed=1   
+2017-03-07 05:37:19,098 p=108423 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 05:37:19,123 p=108423 u=train |  TASK [setup] *******************************************************************
+2017-03-07 05:37:19,444 p=108423 u=train |  fatal: [172.17.0.11]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).\r\n", "unreachable": true}
+2017-03-07 05:37:19,861 p=108423 u=train |  ok: [172.17.0.10]
+2017-03-07 05:37:19,863 p=108423 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 05:37:29,156 p=108423 u=train |  ok: [172.17.0.10]
+2017-03-07 05:37:29,160 p=108423 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 05:37:29,952 p=108423 u=train |  skipping: [172.17.0.10]
+2017-03-07 05:37:29,961 p=108423 u=train |  	to retry, use: --limit @/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.retry
+
+2017-03-07 05:37:29,961 p=108423 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 05:37:29,961 p=108423 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 05:37:29,962 p=108423 u=train |  172.17.0.11                : ok=0    changed=0    unreachable=1    failed=0   
+2017-03-07 05:38:05,333 p=109900 u=train |  172.17.0.11 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).\r\n", 
+    "unreachable": true
+}
+2017-03-07 05:38:05,418 p=109900 u=train |  172.17.0.10 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2017-03-07 05:39:13,528 p=111972 u=train |  172.17.0.10 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2017-03-07 05:39:13,679 p=111972 u=train |  172.17.0.11 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Authentication failure.", 
+    "unreachable": true
+}
+2017-03-07 05:48:23,521 p=129749 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 05:48:23,544 p=129749 u=train |  TASK [setup] *******************************************************************
+2017-03-07 05:48:23,888 p=129749 u=train |  fatal: [172.17.0.11]: UNREACHABLE! => {"changed": false, "msg": "Authentication failure.", "unreachable": true}
+2017-03-07 05:48:24,279 p=129749 u=train |  ok: [172.17.0.10]
+2017-03-07 05:48:24,281 p=129749 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 05:48:37,653 p=129749 u=train |  ok: [172.17.0.10]
+2017-03-07 05:48:37,654 p=129749 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 05:48:37,711 p=129749 u=train |  skipping: [172.17.0.10]
+2017-03-07 05:48:37,713 p=129749 u=train |  	to retry, use: --limit @/home/train/Trainings/Ansible/March2017/Day2/InstallApacheWebserOnUbuntuAndCentOS/installapache.retry
+
+2017-03-07 05:48:37,718 p=129749 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 05:48:37,719 p=129749 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 05:48:37,719 p=129749 u=train |  172.17.0.11                : ok=0    changed=0    unreachable=1    failed=0   
+2017-03-07 06:10:42,088 p=40775 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 06:10:42,112 p=40775 u=train |  TASK [setup] *******************************************************************
+2017-03-07 06:10:50,514 p=40775 u=train |  fatal: [172.17.0.11]: UNREACHABLE! => {"changed": false, "msg": "Authentication failure.", "unreachable": true}
+2017-03-07 06:10:50,961 p=40775 u=train |  ok: [172.17.0.10]
+2017-03-07 06:10:50,962 p=40775 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 06:11:12,178 p=40775 u=train |   [ERROR]: User interrupted execution
+
+2017-03-07 06:11:51,190 p=42128 u=train |  ERROR! Missing target hosts
+2017-03-07 06:12:10,636 p=42703 u=train |  172.17.0.11 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Authentication failure.", 
+    "unreachable": true
+}
+2017-03-07 06:12:10,744 p=42703 u=train |  172.17.0.10 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2017-03-07 07:07:04,244 p=14585 u=train |  172.17.0.11 | UNREACHABLE! => {
+    "changed": false, 
+    "msg": "Failed to connect to the host via ssh: Warning: Permanently added '[localhost]:5000' (RSA) to the list of known hosts.\r\nPermission denied (publickey).\r\n", 
+    "unreachable": true
+}
+2017-03-07 07:07:04,386 p=14585 u=train |  172.17.0.10 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2017-03-07 07:19:16,614 p=38190 u=train |   [WARNING]: sftp transfer mechanism failed on [localhost]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2017-03-07 07:19:16,789 p=38190 u=train |  172.17.0.10 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2017-03-07 07:19:20,035 p=38190 u=train |  172.17.0.11 | SUCCESS => {
+    "changed": false, 
+    "ping": "pong"
+}
+2017-03-07 07:19:49,388 p=39352 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 07:19:49,411 p=39352 u=train |  TASK [setup] *******************************************************************
+2017-03-07 07:19:49,682 p=39352 u=train |   [WARNING]: sftp transfer mechanism failed on [localhost]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2017-03-07 07:19:53,868 p=39352 u=train |  ok: [172.17.0.10]
+2017-03-07 07:19:54,054 p=39352 u=train |  ok: [172.17.0.11]
+2017-03-07 07:19:54,057 p=39352 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 07:19:54,207 p=39352 u=train |  skipping: [172.17.0.11]
+2017-03-07 07:20:54,279 p=39352 u=train |  ok: [172.17.0.10]
+2017-03-07 07:20:54,282 p=39352 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 07:20:54,418 p=39352 u=train |  skipping: [172.17.0.10]
+2017-03-07 07:20:54,731 p=39352 u=train |   [WARNING]: sftp transfer mechanism failed on [localhost]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2017-03-07 07:30:00,944 p=39352 u=train |  ERROR! The requested handler 'debug:msg="Restarting Apache on CentOS Operating System ..."' was not found in either the main handlers list nor in the listening handlers list
+2017-03-07 07:31:33,516 p=48877 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 07:31:33,541 p=48877 u=train |  TASK [setup] *******************************************************************
+2017-03-07 07:31:34,071 p=48877 u=train |   [WARNING]: sftp transfer mechanism failed on [localhost]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2017-03-07 07:31:34,896 p=48877 u=train |  ok: [172.17.0.11]
+2017-03-07 07:31:34,953 p=48877 u=train |  ok: [172.17.0.10]
+2017-03-07 07:31:34,959 p=48877 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 07:31:35,051 p=48877 u=train |  skipping: [172.17.0.11]
+2017-03-07 07:32:14,708 p=48877 u=train |  ok: [172.17.0.10]
+2017-03-07 07:32:14,710 p=48877 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 07:32:14,780 p=48877 u=train |  skipping: [172.17.0.10]
+2017-03-07 07:32:15,033 p=48877 u=train |   [WARNING]: sftp transfer mechanism failed on [localhost]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2017-03-07 07:32:26,735 p=48877 u=train |  ok: [172.17.0.11]
+2017-03-07 07:32:26,737 p=48877 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 07:32:26,737 p=48877 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 07:32:26,737 p=48877 u=train |  172.17.0.11                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 07:32:51,333 p=50682 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 07:32:51,405 p=50682 u=train |  TASK [setup] *******************************************************************
+2017-03-07 07:32:54,270 p=50682 u=train |  ok: [172.17.0.11]
+2017-03-07 07:32:54,308 p=50682 u=train |  ok: [172.17.0.10]
+2017-03-07 07:32:54,311 p=50682 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 07:32:54,406 p=50682 u=train |  skipping: [172.17.0.11]
+2017-03-07 07:33:08,169 p=50682 u=train |  ok: [172.17.0.10]
+2017-03-07 07:33:08,171 p=50682 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 07:33:08,276 p=50682 u=train |  skipping: [172.17.0.10]
+2017-03-07 07:33:20,468 p=50682 u=train |  ok: [172.17.0.11]
+2017-03-07 07:33:20,470 p=50682 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 07:33:20,470 p=50682 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 07:33:20,471 p=50682 u=train |  172.17.0.11                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 07:36:06,778 p=57375 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 07:36:06,811 p=57375 u=train |  TASK [setup] *******************************************************************
+2017-03-07 07:36:08,335 p=57375 u=train |  ok: [172.17.0.10]
+2017-03-07 07:36:08,809 p=57375 u=train |  ok: [172.17.0.11]
+2017-03-07 07:36:08,812 p=57375 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 07:36:08,965 p=57375 u=train |  skipping: [172.17.0.11]
+2017-03-07 07:36:19,586 p=57375 u=train |  ok: [172.17.0.10]
+2017-03-07 07:36:19,588 p=57375 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 07:36:19,690 p=57375 u=train |  skipping: [172.17.0.10]
+2017-03-07 07:40:21,340 p=57375 u=train |  ERROR! The requested handler 'debug:msg="Restarting Apache on CentOS Operating System ..."' was not found in either the main handlers list nor in the listening handlers list
+2017-03-07 07:43:05,559 p=67188 u=train |  PLAY [Demonstrates installing apache2 webserv on Ubuntu and CentOS] ************
+2017-03-07 07:43:05,586 p=67188 u=train |  TASK [setup] *******************************************************************
+2017-03-07 07:43:07,082 p=67188 u=train |  ok: [172.17.0.11]
+2017-03-07 07:43:07,977 p=67188 u=train |  ok: [172.17.0.10]
+2017-03-07 07:43:07,980 p=67188 u=train |  TASK [Install apache2 on Ubuntu machine using apt package manager] *************
+2017-03-07 07:43:08,982 p=67188 u=train |  skipping: [172.17.0.11]
+2017-03-07 07:43:30,731 p=67188 u=train |  ok: [172.17.0.10]
+2017-03-07 07:43:30,735 p=67188 u=train |  TASK [Install apache2 on CentOS machine using yum package manager] *************
+2017-03-07 07:43:30,853 p=67188 u=train |  skipping: [172.17.0.10]
+2017-03-07 07:43:41,131 p=67188 u=train |  ok: [172.17.0.11]
+2017-03-07 07:43:41,136 p=67188 u=train |  PLAY RECAP *********************************************************************
+2017-03-07 07:43:41,136 p=67188 u=train |  172.17.0.10                : ok=2    changed=0    unreachable=0    failed=0   
+2017-03-07 07:43:41,136 p=67188 u=train |  172.17.0.11                : ok=2    changed=0    unreachable=0    failed=0   

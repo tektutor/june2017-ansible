@@ -1,0 +1,4 @@
+---
+
+- name: This is a pre task playbook
+  debug: msg="This is a pre-task task"

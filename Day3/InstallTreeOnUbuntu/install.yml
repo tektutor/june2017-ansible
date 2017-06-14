@@ -1,0 +1,9 @@
+---
+
+- name: This playbook will install tree utility
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install tree utility
+      apt: name="tree" state="installed" update_cache="yes"

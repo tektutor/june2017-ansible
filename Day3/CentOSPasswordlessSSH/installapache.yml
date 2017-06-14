@@ -1,0 +1,23 @@
+---
+- name: Demonstrates installing apache2 webserv on Ubuntu and CentOS
+  hosts: all
+  become: True
+  tasks:
+    - name: Install apache2 on Ubuntu machine using apt package manager
+      apt: name=apache2 state=latest update_cache=yes
+      when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+      notify: 
+        - "restart apache on Ubuntu"
+
+    - name: Install apache2 on CentOS machine using yum package manager
+      yum: name=httpd state=latest update_cache=yes
+      when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+      notify: 
+        - "restart apache on CentOS" 
+
+  handlers:
+     - name: "restart apache on Ubuntu"
+       service: name=apache2 state=restarted
+
+     - name: "restart apache on CentOS" 
+       service: name=httpd state=restarted

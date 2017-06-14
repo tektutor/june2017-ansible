@@ -1,0 +1,19 @@
+---
+
+- name: Demonstrate block usage
+  hosts: all
+
+  tasks: 
+     - block:
+        - name: Install apache with apt package manager on Ubuntu 
+          apt: name=apache2 state=present
+
+       rescue:
+        - debug: msg="Failed to install apache with apt on CentOS"
+          ignore_errors: True
+
+        - name: Install apache with yum package manager
+          yum: name=httpd state=present
+
+       always:
+        - debug: msg="You will see this always"

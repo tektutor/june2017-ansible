@@ -1,0 +1,8 @@
+---
+
+- hosts: all
+
+  tasks: 
+  - name: This playbook will ping all the machines in the inventory file
+    ping: 
+
