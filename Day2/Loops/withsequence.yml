@@ -1,0 +1,7 @@
+---
+
+- hosts: localhost
+  
+  tasks:
+    - debug: msg="{{item}}"
+      with_sequence: start=0 end=50 stride=2

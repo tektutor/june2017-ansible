@@ -1,0 +1,14 @@
+---
+
+- name: Demonstrate use of apt module in playbook
+  hosts: all
+  become: True
+  vars:
+    proxy_env:
+       http_proxy: http://10.20.30.40:8080
+       https_proxy: https://10.20.30.40:8080
+
+  tasks:
+   - name: Install tree command on Ubuntu machine
+     apt: name=tree state=absent update_cache=yes
+     environment: "{{proxy_env}}"

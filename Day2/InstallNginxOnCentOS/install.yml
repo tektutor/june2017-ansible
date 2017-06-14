@@ -1,0 +1,51 @@
+---
+
+- name: Demonstrates installation of nginx web server on multiple OS family 
+  hosts: all 
+  become: yes
+  
+  vars:
+    - proxy_env:
+         http_proxy: http://10.20.30.40:8080
+         https_proxy: https://10.20.30.40:8080
+
+    - automation_tool: Ansible
+    - provisioner_tool: Docker
+
+  tasks:
+   - name: Install nginx web server on CentOS
+     yum: name=epel-release state=latest
+     environment: "{{proxy_env}}"
+     when: ansible_os_family == "RedHat"
+
+   - name: Install nginx web server on CentOS
+     yum: name=nginx state=latest
+     environment: "{{proxy_env}}"
+     when: ansible_os_family == "RedHat"
+
+   - name: Install nginx web server on Ubuntu 
+     apt: name=nginx state=latest update_cache=yes
+     environment: "{{proxy_env}}"
+     when: ansible_os_family == "Debian"
+
+   - name: Configure nginx web server on CentOS 
+     notify:
+       - Restart nginx server
+     copy: src=nginx_centos.conf dest=/etc/nginx/nginx.conf  
+     when: ansible_os_family == "RedHat"
+
+   - name: Configure nginx web server on Ubuntu 
+     notify:
+       - Restart nginx server
+     copy: src=nginx_ubuntu.conf dest=/etc/nginx/nginx.conf  
+     when: ( ansible_os_family == "Debian" and ansible_distribution == "Ubuntu" )
+
+   - name: Deploy website onto nginx web server 
+     template: src=index.html.j2 dest=/usr/share/nginx/html/index.html  
+     notify:
+       - Restart nginx server
+  
+  handlers:
+   - name: Restart nginx web server
+     service: name=nginx state=restarted
+     listen: Restart nginx server

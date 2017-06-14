@@ -1,0 +1,24 @@
+---
+
+- name: Demonstrates installation of nginx web server on Ubuntu
+  hosts: all
+  become: yes
+  
+  vars:
+    - proxy_env:
+         http_proxy: http://10.20.30.40:8080
+         https_proxy: https://10.20.30.40:8080
+
+    - automation_tool: Ansible
+    - provisioner_tool: Docker
+
+  tasks:
+   - name: Install nginx web server
+     apt: name=nginx state=latest update_cache=yes
+     environment: "{{proxy_env}}"
+
+   - name: Configure nginx web server
+     copy: src=nginx_ubuntu.conf dest=/etc/nginx/nginx.conf  
+
+   - name: Deploy website onto nginx web server 
+     template: src=index.html.j2 dest=/usr/share/nginx/html/index.html  

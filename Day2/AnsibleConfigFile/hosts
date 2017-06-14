@@ -1,0 +1,15 @@
+[all]
+172.17.0.15 ansible_ssh_host=localhost ansible_ssh_port=2000 ansible_become_password=tektutor
+172.17.0.17 ansible_ssh_host=localhost ansible_ssh_port=3000 ansible_become_password=tektutor
+172.17.0.18 ansible_ssh_host=localhost ansible_ssh_port=4000 ansible_become_password=tektutor
+
+[dev]
+172.17.0.15 ansible_ssh_host=localhost ansible_ssh_port=2000  ansible_become_password=tektutor
+172.17.0.17 ansible_ssh_host=localhost ansible_ssh_port=3000 ansible_become_password=tektutor
+
+
+[qa]
+172.17.0.18 ansible_ssh_host=localhost ansible_ssh_port=4000 ansible_become_password=tektutor
+
+
+

@@ -1,0 +1,19 @@
+---
+
+- name: Demonstrates the use of with_items 
+  hosts: all
+  become: yes
+  
+  vars:
+    - proxy_env:
+         http_proxy: http://10.20.30.40:8080
+         https_proxy: https://10.20.30.40:8080
+
+  tasks:
+   - name: Install a bunch of ubuntu utilities 
+     apt: name="{{item}}" state=latest update_cache=yes
+     environment: "{{proxy_env}}"
+     with_items:
+        - tree
+        - cscope
+        - vim
